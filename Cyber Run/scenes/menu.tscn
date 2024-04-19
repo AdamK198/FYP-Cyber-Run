@@ -1,0 +1,164 @@
+[gd_scene load_steps=20 format=3 uid="uid://dg48dterwscng"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_ss388"]
+[ext_resource type="Theme" uid="uid://ly6d8ei5vdom" path="res://assets/UI buttons/new_theme-play.tres" id="2_hlri7"]
+[ext_resource type="FontFile" uid="uid://dt01gpsim03ld" path="res://assets/Font/GlitchGoblin-2O87v.ttf" id="3_tr4n3"]
+[ext_resource type="Theme" uid="uid://leib5irchcif" path="res://assets/UI buttons/new_theme-exit.tres" id="4_hd2e6"]
+[ext_resource type="PackedScene" uid="uid://cai817mbo0ur3" path="res://scenes/background.tscn" id="5_guo56"]
+[ext_resource type="Texture2D" uid="uid://ddfggwaayxhof" path="res://assets/background/background-back.png" id="6_nk4wg"]
+[ext_resource type="Texture2D" uid="uid://cn7eo05jmymrg" path="res://assets/background/background-front.png" id="7_a28am"]
+[ext_resource type="Texture2D" uid="uid://7qattbkhgdea" path="res://assets/background/foreground-run.png" id="7_pjks6"]
+[ext_resource type="Texture2D" uid="uid://tdcjecirxb0a" path="res://assets/sprites/player/resin.png" id="9_td6vm"]
+[ext_resource type="Script" path="res://scenes/menuanim.gd" id="10_qje3x"]
+[ext_resource type="AudioStream" uid="uid://cesfgd0yyh25l" path="res://assets/Audio/lobby.-music.mp3" id="11_c86my"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4yvr"]
+size = Vector2(1197, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5e1p"]
+atlas = ExtResource("9_td6vm")
+region = Rect2(0, 260, 41, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpkpj"]
+atlas = ExtResource("9_td6vm")
+region = Rect2(41, 260, 41, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tpmb"]
+atlas = ExtResource("9_td6vm")
+region = Rect2(82, 260, 41, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts2w1"]
+atlas = ExtResource("9_td6vm")
+region = Rect2(123, 260, 41, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty5ly"]
+atlas = ExtResource("9_td6vm")
+region = Rect2(164, 260, 41, 65)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uda8p"]
+atlas = ExtResource("9_td6vm")
+region = Rect2(205, 260, 41, 65)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gq16"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5e1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpkpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tpmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts2w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty5ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uda8p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ss388")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = -142.0
+offset_right = 138.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 88
+alignment = 1
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hlri7")
+theme_override_fonts/font = ExtResource("3_tr4n3")
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_hd2e6")
+theme_override_fonts/font = ExtResource("3_tr4n3")
+theme_override_font_sizes/font_size = 50
+text = "Exit
+"
+
+[node name="background" parent="." instance=ExtResource("5_guo56")]
+z_index = -3
+
+[node name="back" type="Sprite2D" parent="background"]
+position = Vector2(577.143, 340.5)
+scale = Vector2(1.60714, 1.60714)
+texture = ExtResource("6_nk4wg")
+
+[node name="front" type="Sprite2D" parent="background"]
+position = Vector2(575, 354.5)
+scale = Vector2(1.60556, 1.69286)
+texture = ExtResource("7_a28am")
+
+[node name="foreground" type="Sprite2D" parent="background"]
+position = Vector2(577.501, 510.5)
+scale = Vector2(1.60972, 1.644)
+texture = ExtResource("7_pjks6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-6, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(603, 647)
+shape = SubResource("RectangleShape2D_x4yvr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(129, 568)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_0gq16")
+script = ExtResource("10_qje3x")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -261.5
+offset_top = 95.0
+offset_right = 261.5
+offset_bottom = 264.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_tr4n3")
+theme_override_font_sizes/font_size = 100
+text = "Cyber Run"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_c86my")
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

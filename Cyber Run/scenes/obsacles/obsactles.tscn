@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://dyyrijl2x58ow"]
+
+[ext_resource type="Script" path="res://Scripts/obsactles.gd" id="1_k8llk"]
+[ext_resource type="Texture2D" uid="uid://d1norcyuu4kso" path="res://assets/sprites/obsticle/obstacle.png" id="2_5unps"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_keuy3"]
+atlas = ExtResource("2_5unps")
+region = Rect2(0, 0, 141, 141)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cu0pp"]
+atlas = ExtResource("2_5unps")
+region = Rect2(141, 0, 141, 141)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihs53"]
+atlas = ExtResource("2_5unps")
+region = Rect2(282, 0, 141, 141)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v505f"]
+atlas = ExtResource("2_5unps")
+region = Rect2(423, 0, 141, 141)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ae54q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_keuy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cu0pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihs53")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v505f")
+}],
+"loop": true,
+"name": &"electric",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ntuyf"]
+radius = 36.0555
+
+[node name="obstacle" type="CharacterBody2D" groups=["obstacle"]]
+script = ExtResource("1_k8llk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(69, 69)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_ae54q")
+animation = &"electric"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(68, 70)
+shape = SubResource("CircleShape2D_ntuyf")

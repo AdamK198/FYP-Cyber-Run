@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://bar4u37xm5dyp"]
+
+[ext_resource type="Script" path="res://gameover-button.gd" id="1_hs05o"]
+[ext_resource type="Texture2D" uid="uid://dves17abfmubo" path="res://assets/background/gameover.png" id="2_pl0tp"]
+[ext_resource type="Script" path="res://GameOverResults.gd" id="3_gydjb"]
+[ext_resource type="FontFile" uid="uid://dt01gpsim03ld" path="res://assets/Font/GlitchGoblin-2O87v.ttf" id="3_mdkwv"]
+[ext_resource type="Theme" uid="uid://ly6d8ei5vdom" path="res://assets/UI buttons/new_theme-play.tres" id="4_xg07k"]
+[ext_resource type="Theme" uid="uid://leib5irchcif" path="res://assets/UI buttons/new_theme-exit.tres" id="5_u71u7"]
+[ext_resource type="AudioStream" uid="uid://b82b7kvbqa0h3" path="res://assets/Audio/Game-over.mp3" id="6_u4p44"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_hs05o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577, 359)
+scale = Vector2(0.772, 0.73)
+texture = ExtResource("2_pl0tp")
+script = ExtResource("3_gydjb")
+
+[node name="game-over" type="Label" parent="Sprite2D"]
+offset_left = -601.036
+offset_top = -446.575
+offset_right = 627.964
+offset_bottom = -92.5753
+theme_override_fonts/font = ExtResource("3_mdkwv")
+theme_override_font_sizes/font_size = 75
+text = "Game Over
+
+You were apprehended."
+horizontal_alignment = 1
+
+[node name="hiscore" type="Label" parent="Sprite2D"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -843.264
+offset_top = -131.507
+offset_right = -655.264
+offset_bottom = -81.5068
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_mdkwv")
+theme_override_font_sizes/font_size = 40
+text = "Hi-Score: 00"
+
+[node name="end-score" type="Label" parent="Sprite2D"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -876.943
+offset_top = -60.274
+offset_right = -637.943
+offset_bottom = -10.2737
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_mdkwv")
+theme_override_font_sizes/font_size = 40
+text = "Score: 00"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 407.0
+offset_top = 358.0
+offset_right = 779.0
+offset_bottom = 639.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+z_index = 2
+layout_mode = 2
+theme_override_constants/separation = 88
+alignment = 1
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_xg07k")
+theme_override_fonts/font = ExtResource("3_mdkwv")
+theme_override_font_sizes/font_size = 50
+text = "Play again"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_u71u7")
+theme_override_fonts/font = ExtResource("3_mdkwv")
+theme_override_font_sizes/font_size = 46
+text = "Back to Lobby"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_u4p44")
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

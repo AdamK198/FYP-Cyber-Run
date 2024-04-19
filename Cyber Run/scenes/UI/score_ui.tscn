@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcmtrdefgqm0t"]
+
+[ext_resource type="Script" path="res://gameUI.gd" id="1_8w4js"]
+[ext_resource type="FontFile" uid="uid://dt01gpsim03ld" path="res://assets/Font/GlitchGoblin-2O87v.ttf" id="2_rmk4j"]
+
+[node name="ScoreUI" type="CanvasLayer"]
+
+[node name="gameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 720.0
+script = ExtResource("1_8w4js")
+
+[node name="score" type="Label" parent="gameUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -94.0
+offset_right = 94.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_rmk4j")
+theme_override_font_sizes/font_size = 40
+text = "Score: 00"

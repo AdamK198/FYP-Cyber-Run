@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyyrijl2x58ow"]
+
+[ext_resource type="Script" path="res://obsactles.gd" id="1_ho5cx"]
+[ext_resource type="Texture2D" uid="uid://0cqu1mkxwhec" path="res://assets/sprites/obsticle/barrel.png" id="2_pu6mu"]
+
+[node name="obsactles" type="Node2D"]
+script = ExtResource("1_ho5cx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, -3)
+scale = Vector2(0.61, 0.5875)
+texture = ExtResource("2_pu6mu")

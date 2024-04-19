@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://b245a4brino1d"]
+
+[node name="ScrollingBackground" type="TextureRect"]
+stretch_mode = 1

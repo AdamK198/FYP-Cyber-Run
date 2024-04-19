@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmb4gmo2b0kjr"]
+
+[ext_resource type="PackedScene" uid="uid://dug5rr18m2cgn" path="res://scenes/Fore-background/foreground.tscn" id="1_bl4x1"]
+[ext_resource type="PackedScene" uid="uid://mah8dd7t5rn" path="res://scenes/player/player.tscn" id="2_dxl7k"]
+[ext_resource type="PackedScene" uid="uid://bv0macvhcdc76" path="res://scenes/Parallax.tscn" id="2_tc0gy"]
+[ext_resource type="PackedScene" uid="uid://co4m3xj1ns0vt" path="res://scenes/spawner/spawner.tscn" id="3_5ov6o"]
+[ext_resource type="PackedScene" uid="uid://cai817mbo0ur3" path="res://scenes/background.tscn" id="4_7syda"]
+[ext_resource type="AudioStream" uid="uid://bxn7tq13sog3e" path="res://assets/Audio/game-music.mp3" id="6_l7w2t"]
+
+[node name="game" type="Node2D"]
+
+[node name="background" parent="." instance=ExtResource("4_7syda")]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+
+[node name="Parallax" parent="." instance=ExtResource("2_tc0gy")]
+z_index = 0
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(1533, 321)
+
+[node name="foreground" parent="." instance=ExtResource("1_bl4x1")]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(-1, 38)
+
+[node name="Player" parent="." instance=ExtResource("2_dxl7k")]
+z_index = 3
+z_as_relative = false
+position = Vector2(0, 369)
+
+[node name="Spawner" parent="." instance=ExtResource("3_5ov6o")]
+position = Vector2(1259, 477)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_l7w2t")
+autoplay = true

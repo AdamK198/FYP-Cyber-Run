@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv0macvhcdc76"]
+
+[ext_resource type="Script" path="res://Paralax.gd" id="1_20yc4"]
+[ext_resource type="Texture2D" uid="uid://ddfggwaayxhof" path="res://assets/background/background-back.png" id="1_y5mfo"]
+[ext_resource type="Texture2D" uid="uid://cn7eo05jmymrg" path="res://assets/background/background-front.png" id="2_vhhll"]
+
+[node name="Parallax" type="Node2D"]
+z_index = 2
+metadata/_edit_horizontal_guides_ = [-382.0]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_20yc4")
+
+[node name="back" type="ParallaxLayer" parent="ParallaxBackground"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -39)
+motion_scale = Vector2(50, 50)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/back"]
+z_as_relative = false
+y_sort_enabled = true
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_y5mfo")
+centered = false
+
+[node name="back2" type="ParallaxLayer" parent="ParallaxBackground"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(720, -39)
+motion_scale = Vector2(50, 50)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/back2"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(430, 0)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_y5mfo")
+centered = false
+
+[node name="front" type="ParallaxLayer" parent="ParallaxBackground"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -39)
+motion_scale = Vector2(75, 75)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/front"]
+z_as_relative = false
+y_sort_enabled = true
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_vhhll")
+centered = false
+
+[node name="front2" type="ParallaxLayer" parent="ParallaxBackground"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -39)
+motion_scale = Vector2(75, 75)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/front2"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(1152, 0)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_vhhll")
+centered = false

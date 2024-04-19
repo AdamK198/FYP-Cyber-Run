@@ -1,0 +1,60 @@
+[gd_scene load_steps=6 format=3 uid="uid://j0n0nm77xw4x"]
+
+[ext_resource type="Texture2D" uid="uid://kjdedcgehusd" path="res://assets/background/background.png" id="1_rvywa"]
+[ext_resource type="Texture2D" uid="uid://dycpk2dmqjda0" path="res://assets/background/background_shine.png" id="2_gunvc"]
+[ext_resource type="Texture2D" uid="uid://bw07jgc4gnh3m" path="res://assets/background/clouds.png" id="3_nl0qe"]
+[ext_resource type="FontFile" uid="uid://dt01gpsim03ld" path="res://assets/Font/GlitchGoblin-2O87v.ttf" id="4_56yl3"]
+[ext_resource type="Script" path="res://scenes/UI/Button.gd" id="5_b0hxj"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576.5, 361.5)
+scale = Vector2(1.60139, 1.72143)
+texture = ExtResource("1_rvywa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(1, 1, 1, 0.2)
+position = Vector2(-0.31221, 2.12193e-05)
+scale = Vector2(0.999133, 1)
+texture = ExtResource("2_gunvc")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D"]
+texture = ExtResource("3_nl0qe")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 65.0
+offset_top = 96.0
+offset_right = 1100.0
+offset_bottom = 375.0
+theme_override_fonts/font = ExtResource("4_56yl3")
+theme_override_font_sizes/font_size = 17
+text = "
+
+
+
+Play as Rezin Yakusa and help him evade authorities by traversing the cyber city by doging electrical field traps
+ that are placed to apprehend you in this endless runner.
+
+
+Jump over and avoid the electrical traps by using the up arrow key or spacebar. 
+
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 373.0
+offset_top = 521.0
+offset_right = 810.0
+offset_bottom = 578.0
+theme_override_fonts/font = ExtResource("4_56yl3")
+theme_override_font_sizes/font_size = 47
+text = "Click to Continue"
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1158.0
+offset_bottom = 723.0
+script = ExtResource("5_b0hxj")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
